@@ -10,7 +10,13 @@ public partial class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        var dbHost = Environment.GetEnvironmentVariable("Db_Host");
+        var dbName = Environment.GetEnvironmentVariable("Db_Name");
+        var dbPasssword = Environment.GetEnvironmentVariable("Db_Password");
+        var dbPort = Environment.GetEnvironmentVariable("Db_Port");
+        var connectionString = $"server={dbHost};port={dbPort};database={dbName};user=root;password={dbPasssword}";
+
+        builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
 
         builder.Services.AddMassTransit(configure =>

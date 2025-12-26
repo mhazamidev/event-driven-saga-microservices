@@ -1,4 +1,7 @@
 services:
+  rabbitmq:
+    image: rabbitmq:3-management
+
   emailservice:
     image: ${DOCKER_REGISTRY-}emailservice
     build:
@@ -27,4 +30,5 @@ services:
     build:
       context: .
       dockerfile: src/services/TicketService/Dockerfile
+
 
