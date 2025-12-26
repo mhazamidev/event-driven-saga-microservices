@@ -102,9 +102,13 @@ Each service listens to `CancelTicketEvent` and **rolls back its own data**.
 
 ---
 
-## 🚀 How to Run
+## How to clone
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/saga-orchestration-microservices.git
+
+## 🚀 How to run
+   ```bash 
+   docker compose up -d  
 
