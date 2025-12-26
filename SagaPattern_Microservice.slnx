@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/building-blocks/">
+    <Project Path="src/building-blocks/Events/Events.csproj" Id="fa05b0c7-adaa-459d-8e32-3ca59e62ea7e" />
+    <Project Path="src/building-blocks/MessageBrokers/MessageBrokers.csproj" Id="200291f8-9179-445c-861a-2e484b30ed8a" />
+    <Project Path="src/building-blocks/SagaStateMachine/SagaStateMachine.csproj" Id="b5119dcd-8749-4d69-b8d4-afe53042e691" />
+  </Folder>
+  <Folder Name="/src/services/">
+    <Project Path="src/services/EmailService/EmailService.csproj" Id="c5616351-335e-494a-b506-c68f0c671e90" />
+    <Project Path="src/services/SagaService/SagaService.csproj" Id="ef4bda76-39e9-4d55-a112-d4dc7f30c474" />
+    <Project Path="src/services/TicketGeneratorService/TicketGeneratorService.csproj" Id="9b6621f5-6486-469e-8714-f1ab566445d3" />
+    <Project Path="src/services/TicketService/TicketService.csproj" Id="165b918a-863a-4b5f-b17b-310ab9d12f3c" />
+  </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+</Solution>

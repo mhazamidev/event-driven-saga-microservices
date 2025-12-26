@@ -1,0 +1,30 @@
+services:
+  emailservice:
+    image: ${DOCKER_REGISTRY-}emailservice
+    build:
+      context: .
+      dockerfile: src/services/EmailService/Dockerfile
+
+  ticket.db:
+    image: mcr.microsoft.com/mssql/server
+
+  sagaservice:
+    image: ${DOCKER_REGISTRY-}sagaservice
+    build:
+      context: .
+      dockerfile: src/services/SagaService/Dockerfile
+
+
+  ticketgeneratorservice:
+    image: ${DOCKER_REGISTRY-}ticketgeneratorservice
+    build:
+      context: .
+      dockerfile: src/services/TicketGeneratorService/Dockerfile
+
+
+  ticketservice:
+    image: ${DOCKER_REGISTRY-}ticketservice
+    build:
+      context: .
+      dockerfile: src/services/TicketService/Dockerfile
+

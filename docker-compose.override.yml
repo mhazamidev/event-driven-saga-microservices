@@ -1,0 +1,62 @@
+services:
+  emailservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "8080"
+
+
+  sagaservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - Db_Host=sagaDb
+      - Db_password=p@sswordD1
+    ports:
+      - 5099:8080
+    depends_on:
+      - ticket.db
+
+  
+  ticket.db:
+    container_name: ticket.db
+    environment:
+      - SA_PASSWORD=p@sswordD1
+      - ACCEPT_EULA=Y
+    volumes:
+      - ticket_db_data:/var/opt/mssql
+    ports:
+      - "1431:1433"
+    restart: always
+
+  
+
+  ticketgeneratorservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - Db_Host=TicketInfoDb
+      - Db_password=p@sswordD1
+    ports:
+      - 8098:8080
+    depends_on:
+     - ticket.db
+
+  ticketservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - Db_Host=TicketDb
+      - Db_password=p@sswordD1
+    ports:
+      - 5058:8080
+    depends_on:
+      - ticket.db
+
+volumes:
+  ticket_db_data:
+  
+
+
+
